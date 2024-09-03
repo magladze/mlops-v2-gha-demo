@@ -1,5 +1,4 @@
 $schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
 name: taxi-train-env
-environment:
-  name: azureml://registries/azureml/environments/sklearn-1.5/versions/5
+id: azureml://registries/azureml/environments/sklearn-1.5/versions/5
 description: Environment created from a curated environment to train taxi model.
