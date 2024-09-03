@@ -30,7 +30,7 @@ jobs:
       creds: ${{secrets.AZURE_CREDENTIALS}}
       
   create-compute:
-      needs: [get-config,register-environment,register-dataset]
+      needs: [get-config,register-dataset]
       uses: Azure/mlops-templates/.github/workflows/create-compute.yml@main
       with:
         cluster_name: cpu-cluster
@@ -44,7 +44,7 @@ jobs:
           creds: ${{secrets.AZURE_CREDENTIALS}}
       
   run-pipeline:
-      needs: [get-config,register-environment,create-compute,register-dataset]
+      needs: [get-config,create-compute,register-dataset]
       uses: Azure/mlops-templates/.github/workflows/run-pipeline.yml@main
       with:
         resource_group: ${{ needs.get-config.outputs.resource_group }}
